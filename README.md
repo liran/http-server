@@ -10,7 +10,7 @@
   go install
   ```
 
-- 直接下载可执行文件：[http-server](https://github.com/RanQiwu/http-server/releases/download/v1.0.0/http-server.exe) [只编译了windows的]，然后把它的存放位置加 PATH 环境中。
+- 或者直接下载可执行文件：[http-server](https://github.com/RanQiwu/http-server/releases/download/v1.0.0/http-server.exe) [只编译了windows的]，然后把它的存放路径加 PATH 环境中。
 
 
 
