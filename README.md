@@ -1,5 +1,5 @@
 # http-server
-A http server command.
+An http server command.
 
 **USAGE**
 
