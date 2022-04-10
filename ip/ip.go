@@ -1,4 +1,4 @@
-package main
+package ip
 
 import (
 	"net"
@@ -8,7 +8,7 @@ import (
 	"github.com/fatih/color"
 )
 
-func isIntranet(ipStr string) bool {
+func IsIntranet(ipStr string) bool {
 	if strings.HasPrefix(ipStr, "10.") || strings.HasPrefix(ipStr, "192.168.") {
 		return true
 	}
@@ -33,13 +33,13 @@ func isIntranet(ipStr string) bool {
 	return false
 }
 
-func getIps() []string {
+func GetIps() []string {
 	var ips = []string{"localhost", "127.0.0.1"}
 	addrs, err := net.InterfaceAddrs()
 	if err == nil {
 		for _, a := range addrs {
 			if ipnet, ok := a.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
-				if ipStr := ipnet.IP.String(); isIntranet(ipStr) && ipnet.IP.To4() != nil {
+				if ipStr := ipnet.IP.String(); IsIntranet(ipStr) && ipnet.IP.To4() != nil {
 					ips = append(ips, ipStr)
 				}
 			}
@@ -49,8 +49,8 @@ func getIps() []string {
 	return ips
 }
 
-func showAvailableIps(port int) {
-	ips := getIps()
+func ShowAvailableIps(port int) {
+	ips := GetIps()
 	color.Magenta("Available on:")
 	for _, v := range ips {
 		color.HiGreen("  http://%s:%d\n", v, port)

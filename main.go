@@ -9,6 +9,7 @@ import (
 	"runtime"
 
 	"github.com/fatih/color"
+	"github.com/liran/http-server/ip"
 )
 
 var dirHandle = http.FileServer(http.Dir("."))
@@ -68,7 +69,7 @@ func main() {
 
 	color.Cyan("Starting up http-server...")
 	// 显示可用的IP
-	showAvailableIps(*port)
+	ip.ShowAvailableIps(*port)
 	color.Red("Hit CTRL-C to stop the server")
 
 	log.Fatal(http.ListenAndServe(portString, nil))
