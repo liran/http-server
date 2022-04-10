@@ -1,5 +1,5 @@
 # http-server
-An http server command.
+An HTTP Server command tool that supports CORS.
 
 **USAGE**
 
